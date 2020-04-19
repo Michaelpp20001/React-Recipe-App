@@ -6,7 +6,12 @@ import Recipe from './Recipe';
 function RecipeApp() {
   return (
     <div className="App">
-      <Recipe title="pasta" ingredients={["flour", "water"]}/>
+      <Recipe 
+        title="pasta" 
+        ingredients={["flour", "water"]}
+        instructions="Mix ingredients"
+        img="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/homemade-spaghetti-sauce-horizontal-1530890913.jpg?crop=1xw:0.7498500299940012xh;center,top&resize=1200:*"
+        />
     </div>
   );
 }
