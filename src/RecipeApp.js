@@ -1,7 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
 import './RecipeApp.css';
-import Recipe from './Recipe';
 import Navbar from './Navbar';
 import RecipeList from './Recipe-list';
 
