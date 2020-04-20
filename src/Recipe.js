@@ -22,7 +22,7 @@ class Recipe extends Component {
                     <h3 className="recipe-title">{title}</h3>
                     <h4>Ingredients:</h4>
                     <ul>
-                        {this.props.ingrdients.map((ing, index) => (
+                        {this.props.ingredients.map((ing, index) => (
                             <li key={index}>{ing}</li>
                         ))}
                     </ul>
