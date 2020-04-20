@@ -2,10 +2,15 @@ import React from 'react';
 import logo from './logo.svg';
 import './RecipeApp.css';
 import Recipe from './Recipe';
+import Navbar from './Navbar';
 
 function RecipeApp() {
   return (
     <div className="App">
+      <Navbar 
+        title="Recipe App"
+        nav={["New Recipe", "Home", "About", "Contact Us"]}
+      />
       <Recipe 
         title="pasta" 
         ingredients={["flour", "water"]}
