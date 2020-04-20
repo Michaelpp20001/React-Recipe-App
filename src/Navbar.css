@@ -2,7 +2,7 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #415d8a;
+    background-color: #d10f0f;
 }
 
 .nav-links {
@@ -20,7 +20,7 @@ a {
 
 .title {
     color: white;
-    margin: 20px;
-    font-size: 30px;
+    margin: 15px;
+    font-size: 25px;
 }
 
