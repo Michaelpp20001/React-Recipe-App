@@ -24,3 +24,21 @@ a {
     font-size: 25px;
 }
 
+@media screen and (max-width: 920px) {
+    nav {
+        flex-direction: column;
+    }
+    .nav-links {
+        justify-content: center;
+    }
+    .title {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .nav-links {
+        flex-direction: column;
+    }
+}
+
