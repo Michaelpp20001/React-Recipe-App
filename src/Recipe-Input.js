@@ -51,7 +51,7 @@ class RecipeInput extends Component {
 
     render() {
         const {title, instructions, img, ingredients} = this.state;
-        const {onClose} = this.props;
+        const {onClose} = this.props;                               // object destructuring/extraction
         let inputs = ingredients.map((ing, index) => (
             <div 
             className="recipe-form-line"

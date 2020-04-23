@@ -16,7 +16,9 @@ a {
     color: white;
     text-decoration: none;
     margin: 10px;
+    cursor: pointer;
 }
+
 
 .title {
     color: white;

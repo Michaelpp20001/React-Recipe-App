@@ -28,6 +28,7 @@ function RecipeApp() {
       img: "https://hips.hearstapps.com/del.h-cdn.co/assets/cm/15/11/54fdf3228cd33-dutch-baby-pancake-recipe-mslo1210-xl.jpg"
   }]);
   const [nextRecipeId, setNextRecipeId] = useState(3);
+  const [showForm, setShowForm] = useState(false);
 
 
   function handleSave(recipe) {  // parameter is an object that represents a single recipe
@@ -35,15 +36,20 @@ function RecipeApp() {
     const newArr = [...recipes, newRecipe]
     setRecipes(newArr);
     setNextRecipeId(nextRecipeId + 1);
+    setShowForm(false);
   }
 
-  return (
+  return ( 
     <div className="App">
       <Navbar 
         title="Recipe App"
-        nav={["New Recipe", "Home", "About", "Contact Us"]}
+        onNewRecipe={() => setShowForm(true)}
       />
-      <RecipeInput onSave={handleSave}/>
+      { showForm ? 
+        <RecipeInput 
+          onSave={handleSave}
+          onClose={() => setShowForm(false)}
+          /> : null }
       <RecipeList 
       recipeProps={recipes}/>
     </div>
