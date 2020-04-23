@@ -3,7 +3,8 @@ import "./Recipe-Input.css";
 
 class RecipeInput extends Component {
     static defaultProps = {
-        onClose() {}
+        onClose() {},
+        onSave() {},
     }
     constructor(props) {
         super(props);
@@ -16,7 +17,8 @@ class RecipeInput extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleNewIngredient = this.handleNewIngredient.bind(this);
-        this.handleChangIng = this.handleChangIng.bind(this);
+        this.handleChangeIng = this.handleChangeIng.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
@@ -28,12 +30,23 @@ class RecipeInput extends Component {
         this.setState({ingredients: [...ingredients, ""]}); // empty because you listen to the onChange event
     }
 
-    handleChangIng(event) {
+    handleChangeIng(event) {
         const index = Number(event.target.name.split("-")[1]); //the name property is ingredient-index, splitting at the "-" and returning just the index
         const ingredients = this.state.ingredients.map((ing, i) => (
             i === index ? event.target.value : ing // if i is equal to index I'm looking for, I want to return the new value, othrwise return same value i already had
         ));
         this.setState({ingredients});
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        this.props.onSave({...this.state}); // passinf in all the values from this.state
+        this.setState({  // clearing out the form
+            title: "",
+            instructions: "",
+            ingredients: [""],
+            img: ""
+        })
     }
 
     render() {
@@ -51,13 +64,13 @@ class RecipeInput extends Component {
                         size={45}
                         autoComplete="off"
                         placeholder=" Ingredient"
-                        onChange={this.handleChangIng} />
+                        onChange={this.handleChangeIng} />
                 </label>
             </div>
         ));
         return (
             <div className="recipe-form-container">
-                <form className="recipe-form" onSubmit={() => {}}>
+                <form className="recipe-form" onSubmit={this.handleSubmit}>
                     <button 
                         type="button"
                         className="close-button"
@@ -74,7 +87,7 @@ class RecipeInput extends Component {
                             type="text"
                             value={title}
                             size={42}
-                            autocomplete="off"
+                            autoComplete="off"
                             onChange={this.handleChange}/>
                     </div>
                     <label

@@ -4,7 +4,8 @@ import Recipe from './Recipe';
 
 class RecipeList extends Component {
     render() {
-        const arrRecipes = this.props.arrRecipes.map((recipe, index) =>(
+        console.log("added recipe?", this.props.recipeProps);
+        const recipes = this.props.recipeProps.map((recipe, index) =>(
             <Recipe key={recipe.id}
             title={recipe.title}
             ingredients={recipe.ingredients}
@@ -14,7 +15,7 @@ class RecipeList extends Component {
         ))
         return (
             <div className="recipe-list">
-                {arrRecipes}
+                {recipes}
             </div>
         );
     }
