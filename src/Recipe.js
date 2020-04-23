@@ -7,7 +7,7 @@ class Recipe extends Component {
     }
     render() {
         //passing props from RecipeApp.js
-        const {title, img, instructions} = this.props;
+        const {title, img, instructions, id, onDelete} = this.props;
         //array of props, using map to create an element for each index of ing JSX
         //const ingredients = this.props.ingredients.map((ing, index) => (
         //must always have a unique key when mapping
@@ -27,7 +27,8 @@ class Recipe extends Component {
                         ))}
                     </ul>
                     <h4>Instructions:</h4>
-                        <p>{instructions}</p>
+                    <p>{instructions}</p>
+                    <button type="button" onClick={() => onDelete(id)}>DELETE</button>
                 </div>  
             </div>
         );

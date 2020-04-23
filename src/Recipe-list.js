@@ -4,13 +4,15 @@ import Recipe from './Recipe';
 
 class RecipeList extends Component {
     render() {
-        console.log("added recipe?", this.props.recipeProps);
+        const {onDelete} = this.props;
         const recipes = this.props.recipeProps.map((recipe, index) =>(
             <Recipe key={recipe.id}
             title={recipe.title}
             ingredients={recipe.ingredients}
             img={recipe.img}
             instructions={recipe.instructions}
+            id={recipe.id}
+            onDelete={onDelete}
             />
         ))
         return (

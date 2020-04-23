@@ -39,6 +39,13 @@ function RecipeApp() {
     setShowForm(false);
   }
 
+  function onDelete(id) {
+    console.log(id);
+    const filterRecipes = [...recipes].filter(recipe => recipe.id !== id); // returns all the recipes not equql to the current id
+    console.log(filterRecipes);
+    setRecipes(filterRecipes);
+  }
+
   return ( 
     <div className="App">
       <Navbar 
@@ -50,7 +57,8 @@ function RecipeApp() {
           onSave={handleSave}
           onClose={() => setShowForm(false)}
           /> : null }
-      <RecipeList 
+      <RecipeList
+      onDelete={onDelete}
       recipeProps={recipes}/>
     </div>
   );
