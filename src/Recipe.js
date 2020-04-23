@@ -27,7 +27,7 @@ class Recipe extends Component {
                         ))}
                     </ul>
                     <h4>Instructions:</h4>
-                    <p>{instructions} </p>
+                        <p>{instructions}</p>
                 </div>  
             </div>
         );
