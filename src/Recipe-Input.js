@@ -15,10 +15,25 @@ class RecipeInput extends Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleNewIngredient = this.handleNewIngredient.bind(this);
+        this.handleChangIng = this.handleChangIng.bind(this);
     }
 
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value});
+    }
+
+    handleNewIngredient(event) {
+        const {ingredients} = this.state; // same as const ingredients = this.state.ingredients...object destructuring
+        this.setState({ingredients: [...ingredients, ""]}); // empty because you listen to the onChange event
+    }
+
+    handleChangIng(event) {
+        const index = Number(event.target.name.split("-")[1]); //the name property is ingredient-index, splitting at the "-" and returning just the index
+        const ingredients = this.state.ingredients.map((ing, i) => (
+            i === index ? event.target.value : ing // if i is equal to index I'm looking for, I want to return the new value, othrwise return same value i already had
+        ));
+        this.setState({ingredients});
     }
 
     render() {
@@ -28,14 +43,15 @@ class RecipeInput extends Component {
             <div 
             className="recipe-form-line"
             key={`ingredient-${index}`}>
-                <label>
+                <label>{index+1}.
                     <input
                         type="text"
-                        name={ing}
+                        name={`ingredient-${index}`}
+                        value={ing}
                         size={45}
                         autoComplete="off"
                         placeholder=" Ingredient"
-                        onChange={() => {}} />
+                        onChange={this.handleChangIng} />
                 </label>
             </div>
         ));
