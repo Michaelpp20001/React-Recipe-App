@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './RecipeApp.css';
 import Navbar from './Navbar';
 import RecipeList from './Recipe-list';
+import RecipeInput from './Recipe-Input';
 
 function RecipeApp() {
   const [recipes, setRecipes] = useState([ //useSTate on a functional component for this.state
@@ -34,6 +35,7 @@ function RecipeApp() {
         title="Recipe App"
         nav={["New Recipe", "Home", "About", "Contact Us"]}
       />
+      <RecipeInput />
       <RecipeList 
       arrRecipes={recipes}/>
     </div>

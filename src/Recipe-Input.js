@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import "./Recipe-Input.css";
 
 class RecipeInput extends Component {
     static defaultProps = {
